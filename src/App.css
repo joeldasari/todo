@@ -38,18 +38,24 @@
   background-color: red;
   height: min-content;
   margin: 12.5px;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
 }
 .checkbox {
   position: relative;
-  top: 3.5px;
   transform: scale(1.8);
+  left: 12.5px;
+  cursor: pointer;
 }
 
 .displayItems {
   font-size: 1.25rem;
   margin: 10px;
+}
+
+.irritated {
+  display: flex;
+  gap: 10px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");

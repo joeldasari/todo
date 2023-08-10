@@ -5,25 +5,22 @@ import { Task } from "./Task";
 function App() {
   const [inputText, setInputText] = useState("");
   const [objectItems, setObjectItems] = useState([]);
-  const inputValue = (event) => {
-    setInputText(event.target.value);
-  };
   const addTask = () => {
     const newObject = {
       id: objectItems.length + 1,
       objectName: inputText,
-      status: false,
     };
     inputText !== "" && setObjectItems([...objectItems, newObject]);
+    setInputText("");
   };
   const addTaskonEnter = (event) => {
     if (event.key === "Enter") {
       const newObject = {
         id: objectItems.length + 1,
         objectName: inputText,
-        status: false,
       };
       inputText !== "" && setObjectItems([...objectItems, newObject]);
+      setInputText("");
     }
   };
   const delTask = (itemToBeDel) => {
@@ -50,9 +47,11 @@ function App() {
       <div className="mainHead">
         <h1>TODO List</h1>
         <input
+          value={inputText}
           type="text"
+          placeholder="Ex. Go to the gym"
           className="inputText"
-          onChange={inputValue}
+          onChange={(e) => setInputText(e.target.value)}
           onKeyUp={addTaskonEnter}
         />
         <button onClick={addTask} className="addBtn">
